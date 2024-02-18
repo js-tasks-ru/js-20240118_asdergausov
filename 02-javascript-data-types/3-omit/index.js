@@ -15,7 +15,6 @@ export const omit = (obj, ...fields) => {
         }
     }
 
-
     Object.keys(obj).forEach(key => {
         if (omittedFieldsSet.has(key)) {
             return 
