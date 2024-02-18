@@ -18,4 +18,21 @@ describe('javascript-data-types/omit', () => {
 
     expect(omit(obj, 'riba')).toEqual({foo: 'foo'});
   });
+
+  it('should deep copy array entrances containig simple objects', () => {
+    const obj = {foo: 'foo', bar: [1,2,3]};
+    const expected = {'bar': [1, 2, 3]}
+    expect(pick(obj, 'bar')).toEqual(expected);
+    obj['bar'][0] = 'he-he-he'
+    expect(expected.bar).toEqual([1, 2, 3]);
+  });
+
+  it('should deep copy roperty that is object itself', () => {
+    const obj = {foo: {'bar': 'bar'}};
+    const expected = {foo: {'bar': 'bar'}}
+    expect(pick(obj, 'foo')).toEqual(expected);
+
+    obj['foo']['bar'] = 'baz'
+    expect(expected.foo['bar']).toEqual('bar');
+  });
 });
