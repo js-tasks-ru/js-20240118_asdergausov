@@ -6,16 +6,16 @@
  * @returns {string[]}
  */
 export function sortStrings(arr, param = 'asc') {
-    let sortedArr = Array.from(arr)
-    const cmpDesc = param === 'desc'
+  let sortedArr = Array.from(arr);
+  const cmpDesc = param === 'desc';
 
-    sortedArr.sort((a, b) => {
-       const less = a.localeCompare(b, ['ru-RU','en-EN'], {
-            'sensitivity': 'variant',
-            'caseFirst': 'upper',  
-        });
-        return cmpDesc ? -less : less
-    })
+  sortedArr.sort((a, b) => {
+    const less = a.localeCompare(b, ['ru-RU', 'en-EN'], {
+      'sensitivity': 'variant',
+      'caseFirst': 'upper',  
+    });
+    return cmpDesc ? -less : less;
+  });
 
-    return sortedArr
+  return sortedArr;
 }
